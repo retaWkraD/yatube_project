@@ -1,13 +1,13 @@
 <!DOCTYPE html> <!-- Используется html 5 версии -->
 <html lang="ru"> <!-- Язык сайта - русский -->
+{% extends 'base.html' %}   
+  
   <head>
-    {% extends 'base.html' %}    
     <title>Лев Толстой – зеркало русской революции.</title>
   </head>
+  
   <body>
-    <header>
-      
-    </header>
+    {% block main %}
     <main>
       <!-- класс py-5 создает отступы сверху и снизу блока -->
       <div class="container py-5">
@@ -78,8 +78,7 @@
         <!-- под последним постом нет линии -->
       </div>  
     </main>
-    <footer class="page-footer font-small blue border-top">
-      
-    </footer>
+    {% endblock main %}
+
   </body>
 </html>

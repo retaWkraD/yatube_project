@@ -15,13 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     # Дорогой Джанго, если на сервер пришёл любой запрос (''),
     # перейди в файл urls приложения ice_cream
     # и проверь там все path() на совпадение с запрошенным URL
-    path('', include('posts.urls')),
+    path('', include('posts.urls', namespace='posts')),
 
     # Встроенная админка Django подключена «из коробки» по адресу admin/
     path('admin/', admin.site.urls),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
